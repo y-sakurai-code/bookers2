@@ -50,16 +50,18 @@
           <tbody>
             <tr>
               <th></th>
-            </tr>
-            <tr>
               <th>Title</th>
-            </tr>
-            <tr>
               <th>Opinion</th>
-            </tr>
-            <tr>
               <th></th>
             </tr>
+            <% @books.each do |book| %>
+              <tr>
+                <th><a href="<%= user_path(book.user) %>"><%= image_tag book.user.user_image, size: "100x100" %></a></th>
+                <th><a href="<%= book_path(book) %>"><%= book.title %></a></th>
+                <th><%= book.body %></th>
+                <th></th>
+              </tr>
+            <% end %>
           </tbody>
         </table>
     </div>
