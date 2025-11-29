@@ -1,19 +1,19 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'books/pfbooknew' %>
+      <%= render 'books/pfbooknew', book: @book, book_new: @book_new, book_user: @book_new, user: @user%>
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
         <table class="table table-hover table-inverse">
           <tbody>
-            <% @books.each do |book| %>
+            <% @book_all.each do |book| %>
               <tr>
-                <th><a href="<%= user_path(book.user) %>"><%= image_tag book.user.user_image, size: "100x100" %><%= @user.name %></a></th>
+                <th><a href="<%= user_path(book.user) %>"><%= image_tag book.user.user_image, size: "100x100" %><%= @user_book.name %></a></th>
                 <th><a href="<%= book_path(book) %>"><%= book.title %></a></th>
                 <th><%= book.body %></th>
                 <th><a button type="button" class="btn btn-success" href="<%= edit_book_path(book) %>">Edit</button></a></th>
-                <th><%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %></th>
+                <th><%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %></th>
               </tr>
             <% end %>
           </tbody>
