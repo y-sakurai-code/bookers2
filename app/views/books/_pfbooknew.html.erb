@@ -1,42 +1,37 @@
 <h2>User info</h2>
-        <% if current_user.user_image.attached? %>
-          <%= image_tag current_user.user_image, size: "100x100" %>
-        <% else %>
-          <%= image_tag 'no_image', size: "100x100" %>
-        <% end %>
-        <table>
-          <tbody>
-            <tr>
-              <th>name</th>
-            </tr>
-            <tr>
-              <th><%= current_user.name %></th>
-            </tr>
-            <tr>
-              <th>introduction</th>
-            </tr>
-            <tr>
-              <th><%= current_user.introduction %></th>
-            </tr>
-          </tbody>
-        </table>
-        <div class="row">
-          <a class="btn btn-outline-secondary" href="<%= edit_user_path(current_user) %>" >
-            <i class="fas fa-user-cog"></i>
-          </a>
-            
-        </div>
-        <h2>New book</h2>
-          <%= form_with model: book_new do |f| %>
-            <div>
-              <%= f.label :title, 'Title' %>
-                <%= f.text_field :title %>
-            </div>
-            <div>
-              <%= f.label :body, 'Opinion' %>
-                <%= f.text_area :body %>
-            </div>
-            <div>
-              <%= f.submit 'Create Book' %>
-            </div>
-          <% end %>
+  <% if user_book.user_image.attached? %>
+    <%= image_tag user_book.user_image, size: "100x100" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "100x100" %>
+  <% end %>
+  <table>
+    <tbody>
+      <tr>
+        <th>name</th>
+      </tr>
+      <tr>
+        <th><%= user_book.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+      </tr>
+      <tr>
+        <th><%= user_book.introduction %></th>
+      </tr>
+    </tbody>
+  </table>
+
+<h2>New book</h2>
+  <%= form_with model: book_new do |f| %>
+    <div>
+      <%= f.label :title, 'Title' %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :body, 'Opinion' %>
+      <%= f.text_area :body %>
+    </div>
+    <div>
+      <%= f.submit 'Create Book' %>
+    </div>
+  <% end %>

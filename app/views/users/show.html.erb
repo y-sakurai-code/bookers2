@@ -1,2 +1,37 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'books/pfbooknew', book_new: @book_new, user_book: current_user %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+        <table class="table table-hover table-inverse">
+          <tbody>
+            <% @book_all.each do |book| %>
+              <tr>
+                <th>
+                  <a href="<%= user_path(book.user) %>">
+                    <% if book.user.user_image.attached? %>
+                      <%= image_tag book.user.user_image, size: "100x100" %>
+                    <% else %>
+                      <%= image_tag 'no_image', size: "100x100" %>
+                    <% end %>
+                  </a>
+                </th>
+                <th>
+                  <a href="<%= book_path(book) %>">
+                    <%= book.title %>
+                  </a>
+                </th>
+                <th>
+                  <%= book.body %>
+                </th>
+                <th></th>
+                <th></th>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>

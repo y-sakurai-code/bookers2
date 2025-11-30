@@ -2,17 +2,19 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @user_login = current_user
+    @book_new = Book.new
   end
 
   def show
-    @user_login = current_user
+    @user = User.find(params[:id])
+    @book_all = @user.books.all
+    @book_new = Book.new
+
   end
 
   def edit
     @user = User.find(params[:id])
     @user_image = UserImage.new
-    @user_image.user_id = current_user
   end
 
   def update
@@ -22,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = user.find(params[:id])
+    user = User.find(params[:id])
     user.destroy
     redirect_to root_path
   end
@@ -31,6 +33,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :user_image, :introduction)
+  end
+
+  def book_params
+    params.require(:book).permit(:title, :body)
   end
 
 end
