@@ -13,12 +13,11 @@
 
   <body>
     <header>
-    <p></p>
-    <p></p>
-    <p></p>
-      <li>
+    <div class="navbar navber-expand-lg navbar-dark bg-dark">
+      <div class="container">
         <%= link_to "Bookers", root_path %>
-      </li>
+      </div>
+    </div>
       <% if user_signed_in? %>
         <li>
           <%= link_to "Home", user_path(current_user.id) %>
