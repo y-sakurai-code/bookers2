@@ -10,8 +10,8 @@
               <tr>
                 <th>
                   <a href="<%= user_path(@book.user) %>">
-                    <% if @book.user.user_image.attached? %>
-                      <%= image_tag @book.user.user_image, size: "100x100" %>
+                    <% if @book.user.profile_image.attached? %>
+                      <%= image_tag @book.user.profile_image, size: "100x100" %>
                     <% else %>
                       <%= image_tag 'no_image', size: "100x100" %>
                     <% end %>

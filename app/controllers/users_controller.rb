@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :is_matching_login_user, only: [:edit, :update]
 
   def index
     @users = User.all
@@ -15,7 +14,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @user_image = UserImage.new
+    @profile_image = ProfileImage.new
+    if @user != current_user
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
