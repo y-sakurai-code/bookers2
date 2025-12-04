@@ -21,7 +21,7 @@
     </tbody>
   </table>
   <div class="row">
-    <a class="btn btn-outline-secondary btn-block" href="<%= edit_user_path(current_user.id) %>" >
+    <a class="btn btn-outline-secondary btn-block" href="<%= edit_user_path(user_book.id) %>" >
     <i class="fas fa-user-cog"></i>
     </a>
   </div>
@@ -29,11 +29,11 @@
 <h2>New book</h2>
   <%= form_with model: book_new do |f| %>
     <div>
-      <%= f.label :title, 'Title' %>
+      <label for="book_title">Title</label>
       <%= f.text_field :title %>
     </div>
     <div>
-      <%= f.label :body, 'Opinion' %>
+      <label for="book_body">Opinion</label>
       <%= f.text_area :body %>
     </div>
     <div>

@@ -3,7 +3,7 @@
     <div class="col-lg-5 mx-auto">
       <h2>Editing Book</h2>
         <% if @book.errors.any? %>
-          <%= @book.errors.count %>件のエラーが発生しました
+          <%= @book.errors.count %>errors prohibited this obj from being saved
             <ul>
               <% @book.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
@@ -21,9 +21,9 @@
         <% end %>
 
         <p>
-        <%= link_to "ShoW", book_path(@book) %>
+        <%= link_to "Show", book_path(@book) %>
         |
-        <%= link_to "Back", book_path %>
+        <%= link_to "Back", books_path %>
         </p>
     </div>
   </div>

@@ -15,6 +15,7 @@
                     <% else %>
                       <%= image_tag 'no_image', size: "100x100" %>
                     <% end %>
+                    <%= @book.user.name %>
                   </a>
                 </th>
                 <th><a href="<%= book_path(@book) %>"><%= @book.title %></a></th>
